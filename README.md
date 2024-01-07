@@ -3,8 +3,9 @@ core DOS operating system, used as a base for the rest of BurningEmbersOS
 
 ## Development
 ### Requirements
-[NASM](https://www.nasm.us)
-[QEMU](https://www.qemu.org) (or other virtual machine software)
+* [NASM](https://www.nasm.us)
+* [QEMU](https://www.qemu.org) (or other virtual machine software)
+* GNU Compiler Collection
 
 ### compiling and running
 to compile, use `nasm` then use `Get-Content` (or `cat`):

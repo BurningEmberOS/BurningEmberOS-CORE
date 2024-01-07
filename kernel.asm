@@ -1,36 +1,50 @@
-section .data
-    user_input db 256  ; Buffer to store user input
-    os_name db 'BurningEmberOS', 0  ; Null-terminated OS name
-
 section .text
     global _start
 
 _start:
     ; Print the OS name
-    mov edi, os_name  ; Source buffer
-print_os_name:
-    lodsb           ; Load the next byte from the buffer into AL
-    cmp al, 0       ; Check for the null terminator (end of string)
-    je os_name_done ; If null terminator, exit the loop
-    mov ah, 0x0E    ; BIOS teletype function
-    int 0x10        ; Print the character
-    jmp print_os_name ; Repeat for the next character
-os_name_done:
+    mov ah, 0x0E ; BIOS teletype function
+    mov al, 'B'  ; ASCII character for 'B'
+    int 0x10     ; Call BIOS interrupt for video services
 
-    ; Print a prompt
-    mov ah, 0x0E
-    mov al, '>'
+    mov al, 'u'  ; ASCII character for 'u'
     int 0x10
 
-    ; Read user input
-    mov ah, 0       ; BIOS keyboard input function
-    int 0x16        ; Call BIOS interrupt for keyboard input
-    mov [user_input], al ; Store the entered character in user_input
+    mov al, 'r'  ; ASCII character for 'r'
+    int 0x10
 
-    ; Print the user input
-    mov ah, 0x0E
-    mov al, [user_input] ; Move the character to AL
-    int 0x10        ; Print the character
+    mov al, 'n'  ; ASCII character for 'n'
+    int 0x10
+
+    mov al, 'i'  ; ASCII character for 'i'
+    int 0x10
+
+    mov al, 'n'  ; ASCII character for 'n'
+    int 0x10
+
+    mov al, 'g'  ; ASCII character for 'g'
+    int 0x10
+
+    mov al, 'E'  ; ASCII character for 'E'
+    int 0x10
+
+    mov al, 'm'  ; ASCII character for 'm'
+    int 0x10
+
+    mov al, 'b'  ; ASCII character for 'b'
+    int 0x10
+
+    mov al, 'e'  ; ASCII character for 'e'
+    int 0x10
+
+    mov al, 'r'  ; ASCII character for 'r'
+    int 0x10
+
+    mov al, 'O'  ; ASCII character for 'O'
+    int 0x10
+
+    mov al, 'S'  ; ASCII character for 'S'
+    int 0x10
 
     ; Infinite loop (for testing purposes)
     cli          ; Disable interrupts
