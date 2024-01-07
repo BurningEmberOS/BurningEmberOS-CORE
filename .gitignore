@@ -1,2 +1,4 @@
 # ignore binary files
-bootloader.bin
+*.bin
+# ignore image files
+*.img
